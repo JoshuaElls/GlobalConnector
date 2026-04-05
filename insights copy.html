@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gii Insights & Resources — Design guides, technical articles, case studies, and engineering knowledge from four decades of medical device manufacturing expertise." />
+  <title>Insights & Resources | Global Interconnect, Inc.</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== INSIGHTS PAGE STYLES ===== */
+
+    /* Page banner / hero */
+    .insights-banner {
+      background: linear-gradient(135deg, #0d4c3a 0%, #1a5f47 100%);
+      padding: 6rem 2rem;
+      text-align: center;
+      color: white;
+    }
+
+    .insights-banner-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .insights-banner h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .insights-banner p {
+      font-size: 1.125rem;
+      opacity: 0.95;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    /* Filter row */
+    .insights-filters {
+      background: #f8f8f8;
+      padding: 2rem;
+      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 3rem;
+    }
+
+    .filters-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-btn {
+      padding: 0.625rem 1.25rem;
+      border: 1px solid #d0d0d0;
+      background: white;
+      color: #333;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: #0d4c3a;
+      color: #0d4c3a;
+      background: #f0f8f5;
+    }
+
+    .filter-btn.active {
+      background: #0d4c3a;
+      color: white;
+      border-color: #0d4c3a;
+    }
+
+    /* Articles grid */
+    .insights-articles {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .article-card {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .article-card:hover {
+      border-color: #0d4c3a;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .article-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .article-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .article-tag {
+      display: inline-block;
+      background: #e8f5f1;
+      color: #0d4c3a;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: fit-content;
+    }
+
+    .article-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+      color: #222;
+    }
+
+    .article-title a {
+      color: #222;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .article-title a:hover {
+      color: #0d4c3a;
+    }
+
+    .article-excerpt {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .article-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid #f0f0f0;
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .article-date {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .article-link {
+      color: #0d4c3a;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+    }
+
+    .article-link:hover {
+      opacity: 0.7;
+    }
+
+    /* Newsletter / Contact CTA */
+    .insights-cta-section {
+      background: #0d4c3a;
+      color: white;
+      padding: 4rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .insights-cta-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .cta-newsletter {
+      padding-right: 2rem;
+    }
+
+    .cta-newsletter h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .cta-newsletter p {
+      font-size: 1rem;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      background: white;
+      color: #333;
+    }
+
+    .newsletter-form input::placeholder {
+      color: #999;
+    }
+
+    .newsletter-form button {
+      padding: 0.75rem 1.5rem;
+      background: #1a5f47;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: #0d4c3a;
+    }
+
+    .cta-engineering {
+      padding-left: 2rem;
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cta-engineering h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .cta-engineering p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .cta-engineering a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .cta-engineering a:hover {
+      opacity: 0.8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .insights-banner h1 {
+        font-size: 1.75rem;
+      }
+
+      .insights-banner p {
+        font-size: 0.95rem;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .cta-newsletter {
+        padding-right: 0;
+      }
+
+      .cta-engineering {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 2rem;
+      }
+
+      .filters-container {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/logos/logo-white.svg" alt="Global Interconnect, Inc." class="logo-img" />
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="capabilities.html">Capabilities</a></li>
+        <li><a href="expertise.html">Expertise</a></li>
+        <li><a href="devices.html">Devices</a></li>
+        <li><a href="insights.html" class="active">Insights</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get In Touch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== INSIGHTS BANNER ===== -->
+  <section class="insights-banner">
+    <div class="insights-banner-content">
+      <h1>Insights & Resources</h1>
+      <p>Engineering Knowledge from Four Decades on the Front Lines of Medical Device Manufacturing</p>
+    </div>
+  </section>
+
+  <!-- ===== FILTER ROW ===== -->
+  <section class="insights-filters">
+    <div class="filters-container">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Design Guide">Design Guides</button>
+      <button class="filter-btn" data-filter="Technical Article">Technical Articles</button>
+      <button class="filter-btn" data-filter="Case Study">Case Studies</button>
+      <button class="filter-btn" data-filter="News">News</button>
+    </div>
+  </section>
+
+  <!-- ===== ARTICLES GRID ===== -->
+  <section class="insights-articles">
+    <div class="articles-grid">
+
+      <!-- Article 1 -->
+      <article class="article-card" data-category="Design Guide">
+        <img src="assets/images/insights/single-use-connector.jpg" alt="Design Considerations for Single-Use Medical Connectors" class="article-image" />
+        <div class="article-body">
+          <span class="article-tag">Design Guide</span>
+          <h2 class="article-title">
+            <a href="https://www.globalinterconnect.com/design-considerations-single-use-medical-connectors/" target="_blank" rel="noopener">Design Considerations for Single-Use Medical Connectors</a>
+          </h2>
+          <p class="article-excerpt">Key engineering factors when designing connectors for single-use applications — from materials selection to validation. Covers biocompatibility, sterilization compatibility, and cost drivers.</p>
+          <div class="article-footer">
+            <span class="article-date">August 2024</span>
+            <a href="https://www.globalinterconnect.com/design-considerations-single-use-medical-connectors/" class="article-link" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="article-card" data-category="Technical Article">
+        <img src="assets/images/insights/blog1.jpg" alt="Understanding Medical Cable Assemblies" class="article-image" />
+        <div class="article-body">
+          <span class="article-tag">Technical Article</span>
+          <h2 class="article-title">
+            <a href="https://www.globalinterconnect.com/understanding-medical-cable-assemblies/" target="_blank" rel="noopener">Understanding Medical Cable Assemblies</a>
+          </h2>
+          <p class="article-excerpt">A comprehensive look at medical cable assembly construction, materials, performance requirements, and the reusable vs. disposable decision framework.</p>
+          <div class="article-footer">
+            <span class="article-date">August 2024</span>
+            <a href="https://www.globalinterconnect.com/understanding-medical-cable-assemblies/" class="article-link" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="article-card" data-category="Technical Article">
+        <img src="assets/images/insights/design-considerations.jpg" alt="Understanding Custom Medical Connectors" class="article-image" />
+        <div class="article-body">
+          <span class="article-tag">Technical Article</span>
+          <h2 class="article-title">
+            <a href="https://www.globalinterconnect.com/understanding-custom-medical-connectors/" target="_blank" rel="noopener">Understanding Custom Medical Connectors</a>
+          </h2>
+          <p class="article-excerpt">When off-the-shelf connectors fall short, custom connectors can improve human factors, reduce lead times, and differentiate your product in the market.</p>
+          <div class="article-footer">
+            <span class="article-date">May 2022</span>
+            <a href="https://www.globalinterconnect.com/understanding-custom-medical-connectors/" class="article-link" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="article-card" data-category="News">
+        <img src="assets/images/insights/forging-relationships.jpg" alt="Forging Stronger Relationships with Our Manufacturing Partners" class="article-image" />
+        <div class="article-body">
+          <span class="article-tag">News</span>
+          <h2 class="article-title">
+            <a href="https://www.globalinterconnect.com/" target="_blank" rel="noopener">Forging Stronger Relationships with Our Manufacturing Partners</a>
+          </h2>
+          <p class="article-excerpt">How Gii's US-Asia model creates transparency and quality alignment across a global supply chain, and what that means for OEM customers.</p>
+          <div class="article-footer">
+            <span class="article-date">July 2023</span>
+            <a href="https://www.globalinterconnect.com/" class="article-link" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 5 -->
+      <article class="article-card" data-category="Technical Article">
+        <img src="assets/images/devices/rf-ablation.jpg" alt="RF Ablation Connector: Improve Cost & Performance" class="article-image" />
+        <div class="article-body">
+          <span class="article-tag">Technical Article</span>
+          <h2 class="article-title">
+            <a href="https://www.globalinterconnect.com/radio-frequency-rf-ablation-connector-improve-cost-performance/" target="_blank" rel="noopener">RF Ablation Connector: Improve Cost & Performance</a>
+          </h2>
+          <p class="article-excerpt">A deep-dive into RF ablation connector design options — from overmolded banana plugs to push-pull configurations — and how to optimize for cost without sacrificing reliability.</p>
+          <div class="article-footer">
+            <span class="article-date">2021</span>
+            <a href="https://www.globalinterconnect.com/radio-frequency-rf-ablation-connector-improve-cost-performance/" class="article-link" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 6 -->
+      <article class="article-card" data-category="Design Guide">
+        <img src="assets/images/insights/stamping.jpg" alt="4 Steps to Choosing the Correct Medical Connector" class="article-image" />
+        <div class="article-body">
+          <span class="article-tag">Design Guide</span>
+          <h2 class="article-title">
+            <a href="https://www.globalinterconnect.com/4-steps-to-choosing-the-correct-medical-connector/" target="_blank" rel="noopener">4 Steps to Choosing the Correct Medical Connector</a>
+          </h2>
+          <p class="article-excerpt">Single-use or reusable? Locking or non-locking? This step-by-step guide walks through the key decision factors for selecting the right medical connector for your device.</p>
+          <div class="article-footer">
+            <span class="article-date">February 2025</span>
+            <a href="https://www.globalinterconnect.com/4-steps-to-choosing-the-correct-medical-connector/" class="article-link" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 7 -->
+      <article class="article-card" data-category="Case Study">
+        <img src="assets/images/insights/signati.jpg" alt="How Gii Changed the Game for a Global Sports Medical Device Manufacturer" class="article-image" />
+        <div class="article-body">
+          <span class="article-tag">Case Study</span>
+          <h2 class="article-title">
+            <a href="https://www.globalinterconnect.com/" target="_blank" rel="noopener">How Gii Changed the Game for a Global Sports Medical Device Manufacturer</a>
+          </h2>
+          <p class="article-excerpt">A custom connector solution that enabled a leading sports medicine OEM to scale production while hitting aggressive cost targets and maintaining zero-defect quality standards.</p>
+          <div class="article-footer">
+            <span class="article-date">2024</span>
+            <a href="https://www.globalinterconnect.com/" class="article-link" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 8 -->
+      <article class="article-card" data-category="Technical Article">
+        <img src="assets/images/insights/blog-post-2.jpg" alt="Considerations When Transferring Medical Device Manufacturing" class="article-image" />
+        <div class="article-body">
+          <span class="article-tag">Technical Article</span>
+          <h2 class="article-title">
+            <a href="https://www.globalinterconnect.com/considerations-when-transferring-medical-device-manufacturing/" target="_blank" rel="noopener">Considerations When Transferring Medical Device Manufacturing</a>
+          </h2>
+          <p class="article-excerpt">Manufacturing transfers are complex but essential for scaling. This guide covers regulatory, supply chain, process, and quality considerations when moving production to a new partner.</p>
+          <div class="article-footer">
+            <span class="article-date">May 2024</span>
+            <a href="https://www.globalinterconnect.com/considerations-when-transferring-medical-device-manufacturing/" class="article-link" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 9 -->
+      <article class="article-card" data-category="News">
+        <img src="assets/images/insights/china-mfg.png" alt="Understanding LEMO and Fischer Push-Pull Connectors" class="article-image" />
+        <div class="article-body">
+          <span class="article-tag">News</span>
+          <h2 class="article-title">
+            <a href="https://www.globalinterconnect.com/understanding-lemo-and-fischer-push-pull-connectors/" target="_blank" rel="noopener">Understanding LEMO and Fischer Push-Pull Connectors</a>
+          </h2>
+          <p class="article-excerpt">A technical overview of push-pull connector systems used in medical devices — how they work, industry standards, and when to consider purpose-built alternatives.</p>
+          <div class="article-footer">
+            <span class="article-date">2023</span>
+            <a href="https://www.globalinterconnect.com/understanding-lemo-and-fischer-push-pull-connectors/" class="article-link" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / NEWSLETTER CTA ===== -->
+  <section class="insights-cta-section">
+    <div class="insights-cta-content">
+      <div class="cta-row">
+        <div class="cta-newsletter">
+          <h2>Stay Connected</h2>
+          <p>Get engineering insights and Gii news delivered to your inbox.</p>
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <input type="email" placeholder="your@company.com" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="cta-engineering">
+          <h3>Have a Technical Question?</h3>
+          <p>Talk to our engineering team about your project or specific technical needs.</p>
+          <a href="index.html#contact">Contact Our Engineers →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logos/logo-white.svg" alt="Global Interconnect, Inc." class="footer-logo" />
+          <p>Contract manufacturer of custom medical connectors, cable assemblies, and electromechanical devices for the world's leading medical device OEMs.</p>
+          <div class="footer-certs">
+            <span>FDA Registered</span>
+            <span>ISO 13485</span>
+            <span>ISO 9001</span>
+          </div>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#advantage">The Gii Advantage</a></li>
+            <li><a href="index.html#quality">Quality & Certifications</a></li>
+            <li><a href="https://www.globalinterconnect.com/careers/" target="_blank" rel="noopener">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Capabilities</h4>
+          <ul>
+            <li><a href="capabilities.html">All Capabilities</a></li>
+            <li><a href="capabilities.html">Custom Connectors</a></li>
+            <li><a href="capabilities.html">Cable Assemblies</a></li>
+            <li><a href="capabilities.html">Electromechanical Assembly</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="insights.html">Insights & Resources</a></li>
+            <li><a href="expertise.html">Engineering Expertise</a></li>
+            <li><a href="devices.html">Medical Devices</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Global Interconnect, Inc. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Simple filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter articles
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.article-card').forEach(card => {
+          const category = card.dataset.category;
+          if (filter === 'all' || category === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Simple newsletter form handling
+    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value;
+      if (email) {
+        alert('Thank you for subscribing! Check your email for confirmation.');
+        e.target.reset();
+      }
+    });
+  </script>
+</body>
+</html>

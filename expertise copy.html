@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Global Interconnect, Inc. (Gii) Expertise — Deep engineering knowledge in medical device interconnect design, from concept through validation to volume production. Energy-based devices, diagnostic systems, custom connectors." />
+  <title>Expertise | Global Interconnect, Inc.</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Expertise Page Specific Styles */
+
+    .expertise-banner {
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .expertise-banner-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1b5e3f 0%, #0f4c2f 100%);
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    .expertise-banner-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/images/validation.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .expertise-banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(27, 94, 63, 0.75);
+      z-index: -1;
+    }
+
+    .expertise-banner-content {
+      position: relative;
+      z-index: 1;
+      padding: 80px 20px;
+      max-width: 900px;
+    }
+
+    .expertise-banner-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .expertise-banner-content p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    @media (max-width: 768px) {
+      .expertise-banner-content h1 {
+        font-size: 2.5rem;
+      }
+      .expertise-banner-content p {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Expertise Intro Section */
+    .expertise-intro {
+      padding: 80px 20px;
+      background: white;
+    }
+
+    .expertise-intro .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .expertise-intro-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .expertise-intro-text p {
+      margin-bottom: 20px;
+    }
+
+    .expertise-intro-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Expertise Area Cards */
+    .expertise-areas {
+      padding: 80px 20px;
+      background: #f9f9f9;
+    }
+
+    .expertise-area {
+      margin-bottom: 120px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .expertise-area:nth-child(even) {
+      grid-template-columns: 1fr 1fr;
+      direction: rtl;
+    }
+
+    .expertise-area:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .expertise-area-content h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #1b5e3f;
+    }
+
+    .expertise-area-content p {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .expertise-area-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .expertise-area-content li {
+      padding-left: 30px;
+      margin-bottom: 12px;
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .expertise-area-content li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #1b5e3f;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .expertise-area-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 12px;
+      background: white;
+      min-height: 350px;
+    }
+
+    .expertise-area-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 1024px) {
+      .expertise-area {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .expertise-area:nth-child(even) {
+        grid-template-columns: 1fr;
+        direction: ltr;
+      }
+      .expertise-area-content h3 {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* Process Section */
+    .expertise-process {
+      padding: 80px 20px;
+      background: white;
+    }
+
+    .expertise-process .container {
+      max-width: 1200px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #1b5e3f;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #1a1a1a;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 40px 20px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      border: 2px solid #e0e0e0;
+      position: relative;
+    }
+
+    .process-step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: #1b5e3f;
+      color: white;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .process-step h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .process-step p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .process-arrow {
+      display: none;
+    }
+
+    @media (min-width: 1025px) {
+      .process-step::after {
+        content: '→';
+        position: absolute;
+        right: -25px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        color: #1b5e3f;
+        font-weight: 700;
+      }
+
+      .process-step:last-child::after {
+        content: '';
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .process-timeline {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .process-timeline {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Why Gii Section */
+    .why-gii {
+      padding: 80px 20px;
+      background: #1b5e3f;
+      color: white;
+    }
+
+    .why-gii .container {
+      max-width: 1200px;
+    }
+
+    .why-gii .section-header {
+      margin-bottom: 60px;
+    }
+
+    .why-gii .section-eyebrow {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .why-gii .section-title {
+      color: white;
+    }
+
+    .why-gii .section-desc {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .why-gii-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .why-gii-item {
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      border-left: 4px solid #4ade80;
+    }
+
+    .why-gii-item h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: white;
+    }
+
+    .why-gii-item p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .why-gii-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* CTA Section */
+    .expertise-cta {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #1b5e3f 0%, #0f4c2f 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .expertise-cta .container {
+      max-width: 800px;
+    }
+
+    .expertise-cta h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .expertise-cta p {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      padding: 16px 40px;
+      background: white;
+      color: #1b5e3f;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 1.1rem;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-container">
+      <a href="/" class="nav-logo">
+        <img src="assets/images/logos/logo-white.svg" alt="Global Interconnect, Inc." class="logo-img" />
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="capabilities.html">Capabilities</a></li>
+        <li><a href="expertise.html" class="active">Expertise</a></li>
+        <li><a href="devices.html">Devices</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get In Touch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== EXPERTISE BANNER ===== -->
+  <section class="expertise-banner">
+    <div class="expertise-banner-bg"></div>
+    <div class="expertise-banner-overlay"></div>
+    <div class="expertise-banner-content">
+      <h1>Expertise</h1>
+      <p>Deep Engineering Knowledge at Every Stage of Your Device's Life</p>
+    </div>
+  </section>
+
+  <!-- ===== EXPERTISE INTRO ===== -->
+  <section class="expertise-intro">
+    <div class="container">
+      <div class="expertise-intro-text">
+        <p>Global Interconnect's engineering team brings decades of specialized experience in medical device interconnect design — from initial concept through design freeze, validation, and volume production. We don't just manufacture; we engineer solutions that solve real clinical problems.</p>
+        <p>Our deep expertise spans energy-based devices, diagnostic systems, custom connector technologies, and manufacturing transfers. Every project benefits from engineers who understand not just how to build connectors, but why performance, reliability, and manufacturability matter at every stage of your device's lifecycle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERTISE AREAS ===== -->
+  <section class="expertise-areas">
+    <div class="container">
+
+      <!-- Energy-Based Medical Devices -->
+      <div class="expertise-area">
+        <div class="expertise-area-content">
+          <h3>Energy-Based Medical Devices</h3>
+          <p>Electrosurgical devices, RF ablation systems, and laser delivery systems demand connectors that handle high voltages safely and reliably. Our team specializes in:</p>
+          <ul>
+            <li>High-voltage connector design with robust insulation</li>
+            <li>Shielding architecture to prevent EMI/RFI interference</li>
+            <li>Locking and breakaway mechanisms for surgeon safety</li>
+            <li>Single-use and reusable connector configurations</li>
+            <li>Thermal management in high-power applications</li>
+          </ul>
+        </div>
+        <div class="expertise-area-image">
+          <img src="assets/images/devices/rf-ablation.jpg" alt="RF Ablation System Connector" />
+        </div>
+      </div>
+
+      <!-- Diagnostic & Imaging Devices -->
+      <div class="expertise-area">
+        <div class="expertise-area-content">
+          <h3>Diagnostic & Imaging Devices</h3>
+          <p>Scopes, probes, catheters, and ultrasound transducers require connectors that preserve signal integrity at high frequencies. We deliver:</p>
+          <ul>
+            <li>High-frequency signal integrity design in cable assemblies</li>
+            <li>Miniaturized connectors for minimally invasive applications</li>
+            <li>Low-noise signal transmission to preserve imaging fidelity</li>
+            <li>Biocompatible materials for patient contact surfaces</li>
+            <li>Sterilization-rated designs for reusable instruments</li>
+          </ul>
+        </div>
+        <div class="expertise-area-image">
+          <img src="assets/images/devices/probe.png" alt="Diagnostic Probe Connector" />
+        </div>
+      </div>
+
+      <!-- Push-Pull Connector Technology -->
+      <div class="expertise-area">
+        <div class="expertise-area-content">
+          <h3>Push-Pull Connector Technology</h3>
+          <p>LEMO and Fischer-style push-pull connectors are industry standards for medical devices. Our expertise includes:</p>
+          <ul>
+            <li>Deep technical knowledge of LEMO and Fischer connector ecosystems</li>
+            <li>Purpose-built alternatives with full backward compatibility</li>
+            <li>Non-locking, locking, and breakaway configurations</li>
+            <li>1 to 30+ contact position designs with miniaturization options</li>
+            <li>Custom insert arrangements for specialized applications</li>
+          </ul>
+        </div>
+        <div class="expertise-area-image">
+          <img src="assets/images/devices/lemo-connector.png" alt="Push-Pull Connector" />
+        </div>
+      </div>
+
+      <!-- Single-Use vs. Reusable Design -->
+      <div class="expertise-area">
+        <div class="expertise-area-content">
+          <h3>Single-Use vs. Reusable Device Design</h3>
+          <p>The choice between single-use and reusable designs shapes your entire manufacturing and engineering strategy. We guide you through:</p>
+          <ul>
+            <li>Cost and regulatory implications of each approach</li>
+            <li>Single-use design: minimal parts, biocompatible materials, reliable one-time connection</li>
+            <li>Reusable design: sterilization-rated materials, robust cycling life, cleaning validation</li>
+            <li>Supply chain and inventory management considerations</li>
+            <li>Patient safety and clinical workflow optimization</li>
+          </ul>
+        </div>
+        <div class="expertise-area-image">
+          <img src="assets/images/devices/nonlocking-connector.png" alt="Single-Use vs Reusable Connectors" />
+        </div>
+      </div>
+
+      <!-- Custom Connector Engineering -->
+      <div class="expertise-area">
+        <div class="expertise-area-content">
+          <h3>Custom Connector Engineering</h3>
+          <p>When off-the-shelf connectors don't exist, our engineering team designs them from scratch. This includes:</p>
+          <ul>
+            <li>Requirements analysis and preliminary design</li>
+            <li>DFM (Design for Manufacture) analysis to optimize cost and producibility</li>
+            <li>Rapid prototyping and iterative validation</li>
+            <li>Backward compatibility with industry-standard systems</li>
+            <li>Prototype to volume production scaling</li>
+          </ul>
+        </div>
+        <div class="expertise-area-image">
+          <img src="assets/images/devices/purpose-built-connector.png" alt="Custom Engineered Connector" />
+        </div>
+      </div>
+
+      <!-- Manufacturing Transfer Expertise -->
+      <div class="expertise-area">
+        <div class="expertise-area-content">
+          <h3>Manufacturing Transfer Expertise</h3>
+          <p>Transferring production from an OEM's internal facility or another CMO requires careful engineering oversight. We provide:</p>
+          <ul>
+            <li>Detailed engineering review of existing processes and designs</li>
+            <li>Process revalidation and capability studies</li>
+            <li>Supply chain mapping and vendor qualification</li>
+            <li>Regulatory documentation support (DHR, DHF, change control)</li>
+            <li>First-article inspection and lot acceptance procedures</li>
+            <li>Seamless knowledge transfer to ensure continuity</li>
+          </ul>
+        </div>
+        <div class="expertise-area-image">
+          <img src="assets/images/validation.jpg" alt="Manufacturing Transfer & Validation" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 4-STEP PROCESS ===== -->
+  <section class="expertise-process">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">How We Work</span>
+        <h2 class="section-title">Gii's Engineering Engagement Model</h2>
+        <p class="section-desc">From requirements analysis to volume production, our structured 4-step process ensures alignment, manufacturability, and regulatory readiness.</p>
+      </div>
+
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="process-step-num">1</div>
+          <h4>Requirements<br />Review</h4>
+          <p>Understand your performance targets, regulatory path, and manufacturing constraints before any engineering begins.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-step-num">2</div>
+          <h4>Design &<br />DFM</h4>
+          <p>Develop designs optimized for performance and manufacturability, with detailed cost and process analysis.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-step-num">3</div>
+          <h4>Prototype &<br />Validation</h4>
+          <p>Build prototypes, conduct testing, refine designs, and gather data to support regulatory submissions.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-step-num">4</div>
+          <h4>Volume<br />Production</h4>
+          <p>Scale from pilot lots to full production with documented processes, controls, and quality oversight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY ENGINEERS CHOOSE GII ===== -->
+  <section class="why-gii">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Why Engineers Choose Gii</span>
+        <h2 class="section-title">The Gii Engineering Advantage</h2>
+      </div>
+
+      <div class="why-gii-grid">
+        <div class="why-gii-item">
+          <h4>Zero-Failure Culture</h4>
+          <p>We understand that connector and cable failures can have serious clinical consequences. Every design, process, and quality decision is guided by zero-failure principles.</p>
+        </div>
+
+        <div class="why-gii-item">
+          <h4>Design-for-Manufacture from Day One</h4>
+          <p>Our engineers speak both the language of performance engineering and manufacturing reality. DFM is embedded in every design decision, not added as an afterthought.</p>
+        </div>
+
+        <div class="why-gii-item">
+          <h4>Regulatory Documentation Expertise</h4>
+          <p>FDA-registered and ISO 13485 certified, our team understands Device History Records, Device Master Records, and the documentation needed to support regulatory submissions and audits.</p>
+        </div>
+
+        <div class="why-gii-item">
+          <h4>Global Scale with US Engineering Leadership</h4>
+          <p>Access to 10,000+ workers and 1.5 million square feet of manufacturing across our US-Asia network — all under the oversight of American engineering and quality leadership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERTISE CTA ===== -->
+  <section class="expertise-cta">
+    <div class="container">
+      <h2>Bring Us Your Toughest Engineering Challenge</h2>
+      <p>Our team is ready to partner with you on connector design, manufacturing transfers, or any custom interconnect challenge. Let's talk about how Gii's expertise can accelerate your program.</p>
+      <a href="index.html#contact" class="btn-cta">Contact Our Engineering Team</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logos/logo-white.svg" alt="Global Interconnect, Inc." class="footer-logo" />
+          <p>Contract manufacturer of custom medical connectors, cable assemblies, and electromechanical devices for the world's leading medical device OEMs.</p>
+          <div class="footer-certs">
+            <span>FDA Registered</span>
+            <span>ISO 13485</span>
+            <span>ISO 9001</span>
+          </div>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="expertise.html">Expertise</a></li>
+            <li><a href="https://www.globalinterconnect.com/careers/" target="_blank" rel="noopener">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Capabilities</h4>
+          <ul>
+            <li><a href="capabilities.html">Custom Connectors</a></li>
+            <li><a href="capabilities.html">Cable Assemblies</a></li>
+            <li><a href="capabilities.html">Electromechanical Assembly</a></li>
+            <li><a href="capabilities.html">PCBA</a></li>
+            <li><a href="capabilities.html">Metal Stamping</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="devices.html">Medical Devices</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Global Interconnect, Inc. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

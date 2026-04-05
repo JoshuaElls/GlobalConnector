@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Global Interconnect, Inc. (Gii) — Learn our story, mission, leadership team, and commitment to precision medical device manufacturing for over four decades." />
+  <title>About Us | Global Interconnect, Inc.</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== ABOUT PAGE HERO BANNER ===== */
+    .about-hero {
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .about-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("assets/images/team/company-action.jpg") center / cover no-repeat;
+      background-attachment: fixed;
+      z-index: 0;
+    }
+
+    .about-hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(52, 100, 43, 0.85), rgba(52, 100, 43, 0.75));
+      z-index: 1;
+    }
+
+    .about-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 80px 40px;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .about-hero .subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 400;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
+
+    /* ===== LEADERSHIP TEAM GRID ===== */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin: 60px 0;
+    }
+
+    /* Center the lone last card (Sarah) */
+    .team-grid .team-card:last-child:nth-child(3n + 1) {
+      grid-column: 2 / 3;
+    }
+
+    .team-card {
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .team-card-img {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      background: #f0f0f0;
+    }
+
+    .team-card-img img {
+      width: 100%;
+      height: 100%;
+      filter: grayscale(100%);
+      object-fit: cover;
+    }
+
+    .team-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+    }
+
+    .team-card .title {
+      font-size: 1rem;
+      color: #666;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .team-card .bio {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* ===== VALUES ICON GRID ===== */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin: 60px 0;
+    }
+
+    .value-card {
+      text-align: center;
+      padding: 40px 30px;
+    }
+
+    .value-card-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f5eb;
+      border-radius: 50%;
+    }
+
+    .value-card-icon svg {
+      width: 48px;
+      height: 48px;
+      color: #346c2b;
+    }
+
+    .value-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+
+    .value-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* ===== COMPANY PHOTOS GRID ===== */
+    .company-photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 60px 0;
+    }
+
+    .photo-item {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #f0f0f0;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .photo-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ===== SECTION PADDING & STYLING ===== */
+    .about-section {
+      padding: 80px 0;
+    }
+
+    .about-section.bg-light {
+      background-color: #f9faf7;
+    }
+
+    .about-section.bg-dark {
+      background-color: #1a2a1a;
+      color: white;
+    }
+
+    .about-section.bg-dark .section-title {
+      color: white;
+    }
+
+    .about-section.bg-dark p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ===== STORY & MISSION BLOCKS ===== */
+    .story-text, .mission-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .story-highlights, .mission-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .highlight-item {
+      padding: 20px;
+      background: #f0f5eb;
+      border-radius: 8px;
+      border-left: 4px solid #8BC342;
+    }
+
+    .highlight-item strong {
+      color: #346c2b;
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .highlight-item span {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* ===== GLOBAL PRESENCE MAP ===== */
+    .locations-section {
+      background: #0e3d2e;
+      padding: 80px 0;
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .locations-text .section-eyebrow { color: #8BC342; }
+    .locations-text h2 { color: #fff; margin-bottom: 2rem; }
+
+    .location-block { margin-bottom: 2rem; }
+    .location-block h3 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #8BC342;
+      margin-bottom: .2rem;
+    }
+    .location-block h4 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: .4rem;
+    }
+    .location-block p,
+    .location-block li {
+      color: rgba(255,255,255,.7);
+      font-size: .9375rem;
+      line-height: 1.6;
+    }
+    .location-block ul {
+      list-style: none;
+      padding: 0;
+    }
+    .location-block ul li::before {
+      content: '▪ ';
+      color: #8BC342;
+      font-weight: bold;
+    }
+
+    .map-container {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .map-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .locations-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .about-hero-content {
+        padding: 60px 30px;
+      }
+
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .company-photos {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .about-section {
+        padding: 60px 0;
+      }
+    }
+
+    /* ===== ACTIVE NAV LINK ===== */
+    .nav-links li a.active {
+      position: relative;
+      color: #8BC342;
+    }
+
+    .nav-links li a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: #8BC342;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/logos/logo-white.svg" alt="Global Interconnect, Inc." class="logo-img" />
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="capabilities.html">Capabilities</a></li>
+        <li><a href="expertise.html">Expertise</a></li>
+        <li><a href="devices.html">Devices</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get In Touch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== ABOUT HERO BANNER ===== -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <h1>About Us</h1>
+      <p class="subtitle">Innovating Medical Device Manufacturing for Over Four Decades</p>
+    </div>
+  </section>
+
+  <!-- ===== OUR STORY ===== -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+        <span class="section-eyebrow">Our Foundation</span>
+        <h2 class="section-title">Our Story</h2>
+      </div>
+
+      <div class="story-text">
+        <p>Global Interconnect, Inc. (Gii) was founded in 1995 in Pocasset, Massachusetts, bringing together industry veterans with a shared vision: to build a precision manufacturing partner that could meet the uncompromising demands of the medical device industry. What began as a specialized connector manufacturer has evolved into a comprehensive contract manufacturing enterprise serving the world's leading OEMs.</p>
+
+        <p>Today, Gii leverages over 40 years of combined leadership experience to deliver cutting-edge solutions across custom connectors, cable assemblies, and electromechanical devices. Our US-Asia based engineering, supply chain, and manufacturing infrastructure spans 1.5 million square feet of production capacity, including 15,000 square feet of ISO 8 clean room facilities — all built on a foundation of FDA registration and ISO 13485 + ISO 9001 certification.</p>
+      </div>
+
+      <div class="story-highlights">
+        <div class="highlight-item">
+          <strong>40+ Years</strong>
+          <span>Combined leadership experience in medical device manufacturing</span>
+        </div>
+        <div class="highlight-item">
+          <strong>Founded 1995</strong>
+          <span>Pocasset, Massachusetts</span>
+        </div>
+        <div class="highlight-item">
+          <strong>1.5M Sq Ft</strong>
+          <span>Global manufacturing footprint</span>
+        </div>
+        <div class="highlight-item">
+          <strong>15K Sq Ft</strong>
+          <span>ISO 8 Clean Room Capacity</span>
+        </div>
+        <div class="highlight-item">
+          <strong>FDA Registered</strong>
+          <span>Medical Device Establishment</span>
+        </div>
+        <div class="highlight-item">
+          <strong>ISO 13485 + 9001</strong>
+          <span>Quality Management Certification</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR MISSION ===== -->
+  <section class="about-section bg-dark">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+        <span class="section-eyebrow light">Our Purpose</span>
+        <h2 class="section-title light">Our Mission</h2>
+      </div>
+
+      <div class="mission-text" style="max-width: 800px; margin: 0 auto; text-align: center; color: rgba(255, 255, 255, 0.95); font-size: 1.3rem; line-height: 1.8;">
+        <p>Empowering OEMs with precision-engineered connectors, cable assemblies, and electromechanical devices that meet the zero-failure demands of medical applications — enabling our partners to innovate, scale, and deliver life-changing medical technologies with confidence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEADERSHIP TEAM ===== -->
+  <section class="about-section bg-light">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+        <span class="section-eyebrow">Leadership</span>
+        <h2 class="section-title">Our Leadership Team</h2>
+        <p class="section-desc">Decades of combined expertise in medical device manufacturing, engineering, and operations.</p>
+      </div>
+
+      <div class="team-grid">
+
+        <!-- Row 1 -->
+        <div class="team-card">
+          <div class="team-card-img">
+            <img src="assets/images/team/stephen-bates.jpg" alt="Stephen Bates, Founder" />
+          </div>
+          <h3>Stephen Bates</h3>
+          <p class="title">Founder</p>
+          <p class="bio">Founded Global Interconnect in 1995 after building a career in finance, sales, and operations in the interconnect industry. A Babson College graduate, Stephen's vision established Gii as a trusted partner to the world's leading medical device OEMs.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-card-img">
+            <img src="assets/images/team/todd-squire.jpg" alt="Todd Squire, President" />
+          </div>
+          <h3>Todd Squire</h3>
+          <p class="title">President</p>
+          <p class="bio">Joined Gii in 2004 as Senior Account Executive. Todd's deep expertise in customer relationships and business development has driven Gii's strategic growth into a global contract manufacturing leader.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-card-img">
+            <img src="assets/images/team/robert-gray.jpg" alt="Robert Gray, Chief Technical Officer" />
+          </div>
+          <h3>Robert Gray</h3>
+          <p class="title">Chief Technical Officer</p>
+          <p class="bio">Gii's longest-serving team member, Bob started as Engineering Manager and grew into the CTO role. His deep technical knowledge of electromechanical systems underpins every engineering decision Gii makes.</p>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="team-card">
+          <div class="team-card-img">
+            <img src="assets/images/team/chet-potter.jpg" alt="Chet Potter, VP Engineering &amp; R&amp;D" />
+          </div>
+          <h3>Chet Potter</h3>
+          <p class="title">VP of Engineering &amp; R&amp;D</p>
+          <p class="bio">Joined Gii in 2013 as a Quality Engineer and rose to VP of Engineering and R&D. Chet leads Gii's product development, design-for-manufacture initiatives, and continuous engineering innovation.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-card-img">
+            <img src="assets/images/team/scott-burns.webp" alt="Scott Burns, VP of Sales" />
+          </div>
+          <h3>Scott Burns</h3>
+          <p class="title">VP of Sales</p>
+          <p class="bio">Scott drives Gii's business development strategy and manages key OEM relationships. His technical background and commercial acumen help customers find the right manufacturing solution for every program.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-card-img">
+            <img src="assets/images/team/jacqueline-christensen.jpg" alt="Jacqueline Christensen, Director of Finance" />
+          </div>
+          <h3>Jacqueline Christensen</h3>
+          <p class="title">Director of Finance</p>
+          <p class="bio">Joined Gii in 2005 as Accounting and Administrative Coordinator. Jacqueline manages Gii's financial strategy and operational efficiency, ensuring the company's sustainable growth and fiscal health.</p>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="team-card">
+          <div class="team-card-img">
+            <img src="assets/images/team/troy-mauk.jpg" alt="Troy Mauk, Director of Global Procurement" />
+          </div>
+          <h3>Troy Mauk</h3>
+          <p class="title">Director of Global Procurement</p>
+          <p class="bio">Joined Gii in 2007 as Purchasing Manager. Troy oversees Gii's global supply chain strategy, supplier partnerships, and procurement operations across the US-Asia manufacturing network.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-card-img">
+            <img src="assets/images/team/jonathan-goodwin.jpg" alt="Jonathan Goodwin, Director of Engineering" />
+          </div>
+          <h3>Jonathan Goodwin</h3>
+          <p class="title">Director of Engineering</p>
+          <p class="bio">With over 35 years of electro-mechanical development and manufacturing engineering experience, Jonathan leads Gii's engineering team in delivering precision solutions for the most demanding medical device applications.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-card-img">
+            <img src="assets/images/team/mike.jpg" alt="Mike, Director of Project Engineering" />
+          </div>
+          <h3>Mike Melkonian</h3>
+          <p class="title">Director of Project Engineering</p>
+          <p class="bio">Joined Gii in 2014 as a Quality Engineer after a career in commercial HVAC engineering. Mike ensures project teams execute within scope and customer expectations, while continuously improving Gii's project processes and workflows.</p>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="team-card">
+          <div class="team-card-img">
+            <img src="assets/images/team/sarah-nugent.jpg" alt="Sarah Nugent, Director of Quality" />
+          </div>
+          <h3>Sarah Nugent</h3>
+          <p class="title">Director of Quality</p>
+          <p class="bio">Sarah leads Gii's quality management system, ensuring every product meets FDA, ISO 13485, and customer-specific requirements. Her team maintains the zero-defect culture that defines Gii's reputation in medical device manufacturing.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR VALUES ===== -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+        <span class="section-eyebrow">Core Values</span>
+        <h2 class="section-title">What Guides Our Work</h2>
+        <p class="section-desc">These principles define how we operate, lead, and serve our partners every day.</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+          </div>
+          <h3>Innovation</h3>
+          <p>We continuously advance our engineering capabilities and manufacturing processes to deliver cutting-edge solutions that push the industry forward.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3>Quality</h3>
+          <p>Zero failure is our standard. Every connector, assembly, and device is engineered and manufactured to exceed regulatory and customer expectations.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Integrity</h3>
+          <p>We operate with transparency, honesty, and accountability in every customer relationship and business decision we make.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M16 11a2 2 0 11-4 0 2 2 0 014 0zM9 7a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3>Partnership</h3>
+          <p>We view our OEM customers as true partners, investing in their success and working collaboratively to solve complex manufacturing challenges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GLOBAL PRESENCE ===== -->
+  <section class="locations-section">
+    <!-- Full-bleed SVG map background -->
+    <div class="map-bg-wrap">
+      <img src="assets/images/World_map_without_Antarctica.svg" alt="" aria-hidden="true" class="map-bg-img" />
+    </div>
+
+    <div class="container locations-overlay">
+      <div class="locations-header">
+        <span class="section-eyebrow">Global Reach</span>
+        <h2 class="section-title">Our Locations</h2>
+      </div>
+
+      <div class="locations-cards">
+        <div class="loc-card">
+          <div class="loc-card-label">Corporate HQ</div>
+          <h3>Massachusetts, USA</h3>
+          <p>Global Interconnect, Inc.<br />
+             11 Jonathan Bourne Drive<br />
+             Pocasset, MA 02559</p>
+        </div>
+        <div class="loc-card">
+          <div class="loc-card-label">Asia HQ</div>
+          <h3>Hong Kong</h3>
+          <p>Global Interconnect, Inc.<br />
+             #2103, Fortune Commercial Bldg<br />
+             362 Sha Tsui Road, Tsuen Wan</p>
+        </div>
+        <div class="loc-card">
+          <div class="loc-card-label">Office &amp; Manufacturing</div>
+          <h3>USA &amp; China</h3>
+          <p>Jacksonville, Florida, USA<br />
+             Humen, China</p>
+        </div>
+        <div class="loc-card">
+          <div class="loc-card-label">Warehousing</div>
+          <h3>St. Louis, MO</h3>
+          <p>St. Louis, Missouri, USA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPANY CULTURE & FACILITIES ===== -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+        <span class="section-eyebrow">Our Workplace</span>
+        <h2 class="section-title">Culture &amp; Facilities</h2>
+        <p class="section-desc">State-of-the-art manufacturing facilities combined with a culture of excellence and continuous improvement.</p>
+      </div>
+
+      <div class="company-photos">
+        <div class="photo-item">
+          <img src="assets/images/team/company-beach.jpg" alt="Gii Team Culture" />
+        </div>
+        <div class="photo-item">
+          <img src="assets/images/team/facility-1.jpg" alt="Manufacturing Facility" />
+        </div>
+        <div class="photo-item">
+          <img src="assets/images/team/facility-2.jpg" alt="Clean Room Operations" />
+        </div>
+      </div>
+
+      <div style="margin-top: 50px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <p style="font-size: 1.05rem; line-height: 1.8; color: #555;">Our team is comprised of highly skilled engineers, technicians, and manufacturing professionals united by a commitment to precision, quality, and customer success. We invest in our people, our facilities, and our processes — because excellence in medical device manufacturing requires all three.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="about-section bg-dark">
+    <div class="container" style="text-align: center;">
+      <h2 class="section-title light" style="margin-bottom: 30px;">Ready to Partner With Us?</h2>
+      <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Whether you're scaling production, transferring manufacturing, or designing something entirely new, our team is ready to help bring your medical device vision to life.</p>
+      <a href="index.html#contact" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logos/logo-white.svg" alt="Global Interconnect, Inc." class="footer-logo" />
+          <p>Contract manufacturer of custom medical connectors, cable assemblies, and electromechanical devices for the world's leading medical device OEMs.</p>
+          <div class="footer-certs">
+            <span>FDA Registered</span>
+            <span>ISO 13485</span>
+            <span>ISO 9001</span>
+          </div>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#advantage">The Gii Advantage</a></li>
+            <li><a href="index.html#quality">Quality &amp; Certifications</a></li>
+            <li><a href="https://www.globalinterconnect.com/careers/" target="_blank" rel="noopener">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Capabilities</h4>
+          <ul>
+            <li><a href="capabilities.html">Custom Connectors</a></li>
+            <li><a href="capabilities.html">Cable Assemblies</a></li>
+            <li><a href="capabilities.html">Electromechanical Assembly</a></li>
+            <li><a href="capabilities.html">PCBA</a></li>
+            <li><a href="capabilities.html">Metal Stamping</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="https://www.globalinterconnect.com/understanding-medical-cable-assemblies/" target="_blank" rel="noopener">Medical Cable Assemblies</a></li>
+            <li><a href="https://www.globalinterconnect.com/considerations-when-transferring-medical-device-manufacturing/" target="_blank" rel="noopener">Manufacturing Transfers</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Global Interconnect, Inc. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
