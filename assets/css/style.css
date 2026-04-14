@@ -254,10 +254,13 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   inset: 0;
 }
 .hero-bg-video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
 }
 .hero-overlay {
   position: absolute;
