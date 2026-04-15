@@ -142,7 +142,7 @@
     '.gii-options { display: flex; flex-direction: column; gap: 7px; margin-top: 2px; }',
     '.gii-opt {',
     '  background: #fff; border: 1.5px solid #e0e6e0; color: #1a472a;',
-    '  border-radius: 12px; padding: 11px 14px;',
+    '  border-radius: 12px; padding: 11px 12px 11px 14px;',
     '  font-size: 13px; font-weight: 500;',
     '  text-align: left; cursor: pointer;',
     '  transition: all 0.15s ease;',
@@ -151,7 +151,8 @@
     '  box-shadow: 0 1px 3px rgba(0,0,0,0.06);',
     '}',
     '.gii-opt:hover { background: #1a472a; color: #fff; border-color: #1a472a; box-shadow: 0 3px 10px rgba(26,71,42,0.2); transform: translateY(-1px); }',
-    '.gii-opt .arrow { font-size: 14px; opacity: 0.5; transition: opacity 0.15s, transform 0.15s; }',
+    '.gii-opt span:first-child { flex: 1; min-width: 0; word-break: break-word; white-space: normal; line-height: 1.4; }',
+    '.gii-opt .arrow { font-size: 16px; opacity: 0.4; transition: opacity 0.15s, transform 0.15s; flex-shrink: 0; margin-left: 8px; }',
     '.gii-opt:hover .arrow { opacity: 1; transform: translateX(3px); }',
 
     /* Actions */
