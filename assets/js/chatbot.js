@@ -142,12 +142,12 @@
     '.gii-options { display: flex; flex-direction: column; gap: 7px; margin-top: 2px; }',
     '.gii-opt {',
     '  background: #fff; border: 1.5px solid #e0e6e0; color: #1a472a;',
-    '  border-radius: 12px; padding: 11px 16px 11px 28px;',
+    '  border-radius: 12px; padding: 11px 16px;',
     '  font-size: 13px; font-weight: 500;',
-    '  text-align: left; cursor: pointer;',
+    '  text-align: center; cursor: pointer;',
     '  transition: all 0.15s ease;',
     '  font-family: Inter, -apple-system, sans-serif;',
-    '  display: flex; align-items: center; justify-content: space-between;',
+    '  display: block; width: 100%;',
     '  box-shadow: 0 1px 3px rgba(0,0,0,0.06);',
     '}',
     '.gii-opt:hover { background: #1a472a; color: #fff; border-color: #1a472a; box-shadow: 0 3px 10px rgba(26,71,42,0.2); transform: translateY(-1px); }',
@@ -285,7 +285,7 @@
       choices.forEach(function (c) {
         var btn = document.createElement('button');
         btn.className = 'gii-opt';
-        btn.innerHTML = '<span>' + c.label + '</span><span class="arrow">›</span>';
+        btn.textContent = c.label;
         btn.addEventListener('click', function () {
           wrap.remove();
           handleChoice(c.key, c.label);
