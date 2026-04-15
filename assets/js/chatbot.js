@@ -112,7 +112,7 @@
 
     /* Body */
     '#gii-body {',
-    '  flex: 1; overflow-y: auto; padding: 18px 16px 14px;',
+    '  flex: 1; overflow-y: auto; padding: 18px 20px 14px;',
     '  display: flex; flex-direction: column; gap: 10px;',
     '  max-height: 380px;',
     '}',
@@ -142,7 +142,7 @@
     '.gii-options { display: flex; flex-direction: column; gap: 7px; margin-top: 2px; }',
     '.gii-opt {',
     '  background: #fff; border: 1.5px solid #e0e6e0; color: #1a472a;',
-    '  border-radius: 12px; padding: 11px 12px 11px 20px;',
+    '  border-radius: 12px; padding: 11px 16px 11px 28px;',
     '  font-size: 13px; font-weight: 500;',
     '  text-align: left; cursor: pointer;',
     '  transition: all 0.15s ease;',
