@@ -600,6 +600,8 @@
         opacity:1; visibility:visible; translate:0 0;
       }
 
+      .tl-h-viewport.is-panning .tl-h-card { opacity:0 !important; visibility:hidden !important; }
+
       .tl-h-today .tl-h-node { background:#8BC342; border-color:#346c2b; }
       .tl-h-today .tl-h-node svg { stroke:#fff; }
 
@@ -777,7 +779,6 @@
         var poly = document.getElementById('tlPoly');
         if (!viewport || !track) return;
         var items = track.querySelectorAll('.tl-h-item');
-        var frozen = false;
         var mq = window.matchMedia('(min-width: 821px) and (pointer: fine)');
         var offset = 0, velocity = 0;
 
@@ -801,9 +802,10 @@
           } else {
             velocity = 0;
           }
+          viewport.classList.toggle('is-panning', velocity !== 0);
         }
         viewport.addEventListener('mousemove', onMove);
-        viewport.addEventListener('mouseleave', function () { velocity = 0; });
+        viewport.addEventListener('mouseleave', function () { velocity = 0; viewport.classList.remove('is-panning'); });
 
         // Trackpad / mouse wheel pans horizontally too
         viewport.addEventListener('wheel', function (e) {
@@ -812,12 +814,18 @@
           if (!d) return;
           var before = offset;
           offset = clamp(offset + d);
-          if (offset !== before) { apply(); e.preventDefault(); }
+          if (offset !== before) {
+            apply(); e.preventDefault();
+            viewport.classList.add('is-panning');
+            clearTimeout(wheelIdle);
+            wheelIdle = setTimeout(function () { viewport.classList.remove('is-panning'); }, 180);
+          }
         }, { passive: false });
+        var wheelIdle;
 
         // Animation loop applies edge-zone velocity (paused while hovering a dot)
         (function loop() {
-          if (mq.matches && !frozen && velocity !== 0) {
+          if (mq.matches && velocity !== 0) {
             var before = offset;
             offset = clamp(offset + velocity);
             if (offset !== before) apply();
@@ -827,7 +835,6 @@
 
         items.forEach(function (item) {
           item.addEventListener('mouseenter', function () {
-            frozen = true;
             if (!mq.matches) return;
             var vr = viewport.getBoundingClientRect();
             var ir = item.getBoundingClientRect();
@@ -836,9 +843,7 @@
             if (center < 175) item.classList.add('align-start');
             else if (center > vr.width - 175) item.classList.add('align-end');
           });
-          item.addEventListener('mouseleave', function () { frozen = false; if (document.activeElement === item) item.blur(); });
-          item.addEventListener('focus', function () { frozen = true; });
-          item.addEventListener('blur', function () { frozen = false; });
+          item.addEventListener('mouseleave', function () { if (document.activeElement === item) item.blur(); });
         });
 
         // Build the mountain-range connecting line through every node center
