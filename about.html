@@ -238,9 +238,17 @@
 
     .story-highlights, .mission-highlights {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 30px;
       margin: 40px 0;
+    }
+
+    @media (max-width: 820px) {
+      .story-highlights, .mission-highlights { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 520px) {
+      .story-highlights, .mission-highlights { grid-template-columns: 1fr; }
     }
 
     .highlight-item {
