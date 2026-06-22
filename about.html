@@ -846,6 +846,16 @@
           item.addEventListener('mouseleave', function () { if (document.activeElement === item) item.blur(); });
         });
 
+        // Pad both ends so the first & last milestones can scroll into the
+        // calm center dead zone (where cards open) instead of being stuck in
+        // the edge pan zones.
+        function setPads() {
+          if (!mq.matches) { track.style.paddingLeft = ''; track.style.paddingRight = ''; return; }
+          var pad = Math.max(60, viewport.clientWidth / 2 - items[0].offsetWidth / 2);
+          track.style.paddingLeft = pad + 'px';
+          track.style.paddingRight = pad + 'px';
+        }
+
         // Build the mountain-range connecting line through every node center
         function buildLine() {
           if (!mq.matches) { svg.style.display = 'none'; return; }
@@ -865,15 +875,17 @@
           poly.setAttribute('points', pts.join(' '));
         }
 
+        function relayout() { setPads(); offset = clamp(offset); apply(); buildLine(); }
+
         var rt;
-        window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { offset = clamp(offset); apply(); buildLine(); }, 120); });
+        window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(relayout, 120); });
         if (mq.addEventListener) mq.addEventListener('change', function (ev) {
           if (!ev.matches) { offset = 0; velocity = 0; track.style.transform = ''; }
-          buildLine();
+          relayout();
         });
-        if (document.fonts && document.fonts.ready) document.fonts.ready.then(buildLine);
-        requestAnimationFrame(buildLine);
-        setTimeout(buildLine, 400);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+        requestAnimationFrame(relayout);
+        setTimeout(relayout, 400);
       })();
     </script>
   </section>
