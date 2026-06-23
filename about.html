@@ -236,6 +236,44 @@
       margin-bottom: 20px;
     }
 
+    /* Refined "Our Story" typography */
+    .story-text {
+      max-width: 768px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .story-text p {
+      color: #3c4a3c;
+      margin-bottom: 1.4rem;
+    }
+    .story-text p:last-child { margin-bottom: 0; }
+
+    .story-text .lead {
+      font-size: 1.28rem;
+      line-height: 1.7;
+      font-weight: 500;
+      color: #1d2a1a;
+      margin-bottom: 1.6rem;
+    }
+    .story-text .lead::first-letter {
+      float: left;
+      font-family: 'Barlow', sans-serif;
+      font-size: 4rem;
+      line-height: 0.78;
+      font-weight: 800;
+      color: #346c2b;
+      margin: 8px 14px 0 0;
+    }
+    .story-text .accent {
+      color: #346c2b;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .story-text .lead { font-size: 1.15rem; }
+      .story-text .lead::first-letter { font-size: 3.2rem; margin-right: 10px; }
+    }
+
     .story-highlights, .mission-highlights {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -408,8 +446,8 @@
   <!-- ===== ABOUT HERO BANNER ===== -->
   <section class="about-hero">
     <div class="about-hero-content">
-      <h1>Deep Expertise. Proven Results. Cable &amp; Connector Specialists.</h1>
-      <p class="subtitle">Innovating Medical Device Manufacturing for Over Four Decades</p>
+      <h1>The Cable &amp; Connector Specialists</h1>
+      <p class="subtitle">Deep expertise. Proven results. 30+ years in medical devices.</p>
     </div>
   </section>
 
@@ -422,9 +460,9 @@
       </div>
 
       <div class="story-text">
-        <p>Global Interconnect, Inc. (Gii) was founded in 1995 in Pocasset, Massachusetts by industry veterans who saw a gap the market wasn't filling: medical device OEMs needed a manufacturing partner that was a genuine expert in cables and connectors — not a generalist who happened to build them. That singular focus has guided every decision we've made since day one.</p>
+        <p class="lead">Global Interconnect, Inc. (Gii) was founded in 1995 in Pocasset, Massachusetts by industry veterans who saw a gap the market wasn't filling: medical device OEMs needed a manufacturing partner that was a <span class="accent">genuine expert in cables and connectors</span> — not a generalist who happened to build them. That singular focus has guided every decision we've made since day one.</p>
 
-        <p>While broad-based contract manufacturers spread their capabilities wide, Gii made a deliberate choice to go deep — building its engineering culture and supply chain with cables and connectors at the center. That specialization, combined with our global manufacturing footprint across the US, Americas, and Asia — including a nearshore facility in Cartago, Costa Rica — is what allows us to find solutions that other manufacturers simply cannot offer. Today, our 1.5 million square feet of production capacity, 15,000 square feet of ISO 8 clean room, and FDA registration and ISO 13485 certification support a comprehensive range of medical device manufacturing programs — with cable and connector programs as the cornerstone of everything we do.</p>
+        <p>While broad-based contract manufacturers spread their capabilities wide, Gii made a deliberate choice to <span class="accent">go deep</span> — building its engineering culture and supply chain with cables and connectors at the center. That specialization, combined with our global manufacturing footprint across the US, Americas, and Asia — including a nearshore facility in Cartago, Costa Rica — is what allows us to find solutions that other manufacturers simply cannot offer. Today, our 1.5 million square feet of production capacity, 15,000 square feet of ISO 8 clean room, and FDA registration and ISO 13485 certification support a comprehensive range of medical device manufacturing programs — with cable and connector programs as the <span class="accent">cornerstone of everything we do</span>.</p>
       </div>
 
       <div class="story-highlights">
@@ -792,7 +830,7 @@
           if (!mq.matches) { velocity = 0; return; }
           var rect = viewport.getBoundingClientRect();
           var x = (e.clientX - rect.left) / rect.width;     // 0..1
-          var dead = 0.18, maxSpeed = 13;                   // center 0.32..0.68 stays still
+          var dead = 0.28, maxSpeed = 13;                   // calm center 0.22..0.78 (pan only near edges)
           if (x < 0.5 - dead) {
             var t = (0.5 - dead - x) / (0.5 - dead);
             velocity = -maxSpeed * t * t;
@@ -1069,7 +1107,70 @@
     </div>
   </section>
 
-  <!-- ===== GLOBAL PRESENCE ===== -->
+  <!-- ===== GLOBAL REACH / MAP ===== -->
+  <section class="about-section global-reach" id="global-reach">
+    <style>
+      .global-reach .map-container { max-width: 980px; margin: 0 auto; border-radius: 12px; overflow: hidden; }
+      .global-reach .map-img { width: 100%; height: auto; display: block; }
+      .locations-strip {
+        display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; justify-content: center;
+      }
+      .loc-strip-item {
+        background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 10px;
+        padding: 20px 24px; flex: 1 1 180px; max-width: 240px; text-align: center;
+      }
+      .loc-strip-highlight { background: #f0f7eb; border-color: #8BC342; }
+      .loc-strip-label {
+        font-size: 11px; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 0.08em; color: #8BC342; margin-bottom: 6px;
+      }
+      .loc-strip-name { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; line-height: 1.3; }
+      .loc-strip-detail { font-size: 12px; color: #666; line-height: 1.4; }
+      @media (max-width: 600px) { .loc-strip-item { max-width: 100%; } }
+    </style>
+
+    <div class="container">
+      <div class="section-header" style="text-align:center; margin-bottom: 40px;">
+        <span class="section-eyebrow">Global Reach</span>
+        <h2 class="section-title">Manufacturing Where It Works Best for You</h2>
+        <p class="section-desc">Gii operates across the US, Americas, and Asia — giving OEMs flexible manufacturing options including a nearshore facility in Cartago, Costa Rica for programs that benefit from proximity, US time zone alignment, and reduced supply chain complexity.</p>
+      </div>
+
+      <div class="map-container">
+        <img src="assets/images/map.png" alt="Gii Global Manufacturing Network" class="map-img" />
+      </div>
+
+      <div class="locations-strip">
+        <div class="loc-strip-item">
+          <div class="loc-strip-label">Corporate HQ</div>
+          <div class="loc-strip-name">Pocasset, Massachusetts</div>
+          <div class="loc-strip-detail">Engineering &amp; Program Management</div>
+        </div>
+        <div class="loc-strip-item loc-strip-highlight">
+          <div class="loc-strip-label">Nearshore Manufacturing</div>
+          <div class="loc-strip-name">Cartago, Costa Rica</div>
+          <div class="loc-strip-detail">US Time Zone · Fast Lead Times · No China Tariff Exposure</div>
+        </div>
+        <div class="loc-strip-item">
+          <div class="loc-strip-label">Asia HQ</div>
+          <div class="loc-strip-name">Hong Kong</div>
+          <div class="loc-strip-detail">Asia Operations &amp; Supply Chain</div>
+        </div>
+        <div class="loc-strip-item">
+          <div class="loc-strip-label">Manufacturing</div>
+          <div class="loc-strip-name">Humen, China</div>
+          <div class="loc-strip-detail">High-Volume Cable &amp; Connector Production</div>
+        </div>
+        <div class="loc-strip-item">
+          <div class="loc-strip-label">US Offices</div>
+          <div class="loc-strip-name">Jacksonville, FL &amp; St. Louis, MO</div>
+          <div class="loc-strip-detail">Sales, Warehousing &amp; Distribution</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATIONS / ADDRESSES ===== -->
   <section class="locations-section">
     <!-- Full-bleed SVG map background -->
     <div class="map-bg-wrap">
@@ -1078,8 +1179,8 @@
 
     <div class="container locations-overlay">
       <div class="locations-header">
-        <span class="section-eyebrow">Global Reach</span>
-        <h2 class="section-title">US, Americas &amp; Asia — Manufacturing Where It Works for You</h2>
+        <span class="section-eyebrow">Our Locations</span>
+        <h2 class="section-title">Where to Find Us</h2>
       </div>
 
       <div class="locations-cards">
