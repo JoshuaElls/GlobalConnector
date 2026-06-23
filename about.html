@@ -802,7 +802,6 @@
           } else {
             velocity = 0;
           }
-          viewport.classList.toggle('is-panning', velocity !== 0);
         }
         viewport.addEventListener('mousemove', onMove);
         viewport.addEventListener('mouseleave', function () { velocity = 0; viewport.classList.remove('is-panning'); });
@@ -828,7 +827,10 @@
           if (mq.matches && velocity !== 0) {
             var before = offset;
             offset = clamp(offset + velocity);
-            if (offset !== before) apply();
+            if (offset !== before) { apply(); viewport.classList.add('is-panning'); }
+            else viewport.classList.remove('is-panning');   // clamped at an edge = at rest
+          } else {
+            viewport.classList.remove('is-panning');
           }
           requestAnimationFrame(loop);
         })();
@@ -851,9 +853,9 @@
         // the edge pan zones.
         function setPads() {
           if (!mq.matches) { track.style.paddingLeft = ''; track.style.paddingRight = ''; return; }
-          var pad = Math.max(60, viewport.clientWidth / 2 - items[0].offsetWidth / 2);
-          track.style.paddingLeft = pad + 'px';
-          track.style.paddingRight = pad + 'px';
+          var half = items[0].offsetWidth / 2;
+          track.style.paddingLeft = Math.max(40, viewport.clientWidth * 0.30 - half) + 'px';
+          track.style.paddingRight = Math.max(60, viewport.clientWidth * 0.50 - half) + 'px';
         }
 
         // Build the mountain-range connecting line through every node center
