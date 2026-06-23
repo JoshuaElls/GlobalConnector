@@ -67,7 +67,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .section-pad { padding-block: var(--section-pad); }
 
 .bg-light   { background: var(--gray-100); }
-.bg-dark    { background: var(--green-dark); }
+.bg-dark    { background: #1a472a; }
 
 .section-eyebrow {
   display: inline-block;
