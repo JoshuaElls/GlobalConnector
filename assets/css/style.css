@@ -182,7 +182,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 
 .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
-.logo-img { height: 38px; width: auto; }
+.logo-img { height: 52px; width: auto; }
 
 .nav-links {
   display: flex;
